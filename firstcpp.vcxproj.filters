@@ -18,15 +18,18 @@
     <ClCompile Include="firstcpp.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="once.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
+    <ClCompile Include="Test_First.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="笔记.txt">
       <Filter>源文件</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Test_First.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -140,12 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="firstcpp.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="once.h" />
+    <ClCompile Include="Test_First.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="笔记.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Test_First.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
