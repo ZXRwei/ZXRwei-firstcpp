@@ -8,109 +8,13 @@
 #include <vector>//vector数组
 #include <algorithm>//算法库-排序
 #include <sstream>//字符串流
+#include "Test_First.h"//本地头文件
 
-//命名空间
+//命名空间 不可放入头文件中
 using namespace std;
-
-//枚举空间
-enum WareHouse 
-{
-	Number1,
-	Number2,
-	Number3,
-	Number4,
-	Number5,
-};
-enum class TEXT {
-	T1,
-	T2,
-	T3,
-	T4,
-};
-enum class LogLevel {
-	DEBUG,	//调试
-	INFO,	//正常信息
-	ERROR,	//错误
-	FATAL,	//崩溃
-};
 
 //入口函数传递参数
 //传递参数：TEXT 25 CPP 3.14
-
-//定义base16编码表
-static const string base16_enc_tab = "0123456789ABCDEF";
-
-
-//函数声明
-bool test(int test_number) 
-{
-	test_number = test_number + 10;
-	cout << "test_number=" << test_number << endl;
-	return 1;
-}
-int test_ab(int a, int b)
-{
-	int c;
-	c = a + b;
-	return c;
-}
-//将a和b的值乘以2
-void test_pointer_ab(int* a, int* b) 
-{
-	*a = *a * 2;
-	*b = *b * 2;
-}
-//将a和b的值乘以3
-void test_quoted_ab(int& a, int& b)
-{
-	a = a * 3;
-	b = b * 3;
-}
-//数组中0位和4位不相等时，将1位赋值为10并返回；
-//数组中0位和4位相等但0位和3位不相等时，将2位赋值为20并返回；
-//数组中0位和4位相等且0位和3位相等时，将3位赋值为30并返回；
-int test_array(int (&array)[5]) 
-{
-	if(array[0] != array[4])
-	{
-		array[1] = 10;
-		return array[1];
-	}
-	else if(array[0] != array[3])
-	{
-		array[2] = 20;
-		return array[2];
-	}
-	else {
-		array[3] = 30;
-		return array[3];
-	}
-	
-}
-
-vector<int> Test_vector_array(vector<int> Test_vector) 
-{
-	int TF = 1;
-	while (TF == 1)
-	{
-		int a, b, c;
-		cin >> a >> b >> c;
-		if (a == b) {
-			Test_vector[0] += 1;
-		}else if (b == c){
-			Test_vector[1] += 2;
-		}else{
-			Test_vector[2] += 3;
-			TF = 0;
-		}
-		for (int i : Test_vector)
-		{
-			cout << i << " ";
-		}
-		cout << endl;
-	}
-	return Test_vector;
-}
 
 //int main(int argc,char * argv[], char* env[])
 int main()
@@ -1139,7 +1043,7 @@ int main()
 */
 
 //函数调用
-/*
+
 	{
 		int a;
 		int b;
@@ -1148,7 +1052,6 @@ int main()
 		cout << "b = ";
 		cin >> b;
 		int test_ab_ct = test_ab(a, b);
-
 		auto test_function = test(65);
 		cout << test_function << endl;
 		cout <<"a + b = " << test_ab_ct << endl;
@@ -1185,10 +1088,10 @@ int main()
 		cout << "quoted_a=" << quoted_a << endl;
 		cout << "quoted_b=" << quoted_b << endl;
 	}
-
+	
 	{
-		int array[5]{ 0, 0, 0, 0, 0 };
-		int arr;
+		int32_t array[5]{ 0, 0, 0, 0, 0 };
+		int32_t arr;
 		cout << "&array[0] = " << &array[0] << endl;
 		cout << "sizeof(array) = " << sizeof(array) << endl;
 		arr = test_array(array);
@@ -1199,7 +1102,7 @@ int main()
 			cout << endl;
 		}
 	}
-*/
+
 	{
 		vector<int> Test_vector{ 0, 1, 2 };
 		Test_vector_array(Test_vector);
@@ -1209,8 +1112,13 @@ int main()
 		}
 	}
 	
-
-/**/
+	{
+		cout << "\n a b c>>";
+		int a;int b;int c;
+		cin >> a >> b >> c;
+		int result = test_abc(a, b, c);
+		cout << "a * b * c = " << result << endl;
+	}
 
 //
 
