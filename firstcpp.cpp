@@ -8,11 +8,13 @@
 #include <vector>//vector数组
 #include <algorithm>//算法库-排序
 #include <sstream>//字符串流
-#include "Test_First.h"//本地头文件
-#include "test_base16.h"//本地头文件
+//#include "Test_First.h"//本地头文件
+//#include "test_base16.h"//本地头文件
+#include "cache_db.hpp"
 
 //命名空间 不可放入头文件中
 using namespace std;
+using namespace cachedb;
 
 //入口函数传递参数
 //传递参数：TEXT 25 CPP 3.14
@@ -1227,13 +1229,31 @@ int main()
 	}
 */
 
-//
-
+//利用多文件与函数实现缓存数据库
+/**/
 	{
+		string line;
+		cout << "缓存数据库已启动。命令：添加/查看/删除/索引，输入“退出”结束。\n";
 
+		while (true) {
+			cout << "\n> ";
+			if (!getline(cin, line)) {   // EOF / 输入流异常
+				cout << "\n输入流结束，程序退出。\n";
+				break;
+			}
+
+			// 去掉首尾空白再判断退出
+			string cmd = trim(line);
+			if (cmd == "退出" || cmd == "exit" || cmd == "quit") {
+				cout << "已退出。\n";
+				break;
+			}
+			if (cmd.empty()) continue;             // 空行直接跳过
+
+			cout << cachedb::cache_db_line(line) << "\n";
+		}
+		return 0;
 	}
-
-
 
 
 

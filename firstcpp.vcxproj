@@ -147,6 +147,7 @@
     <Text Include="笔记.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cache_db.hpp" />
     <ClInclude Include="test_base16.h" />
     <ClInclude Include="Test_First.h" />
   </ItemGroup>
