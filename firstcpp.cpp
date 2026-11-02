@@ -1111,13 +1111,105 @@ int main()
 			cout << i << " ";
 		}
 	}
-	
+*/
+
+//char*、vector与string之间的转换
+/*
 	{
-		cout << "\n a b c>>";
-		int a;int b;int c;
-		cin >> a >> b >> c;
-		int result = test_abc(a, b, c);
-		cout << "a * b * c = " << result << endl;
+		//char* -> vector
+		{
+			//定义一个字符串常量str，初始值为"Test Word"
+			//结尾处存在一个'\0'字符，表示字符串的结束
+			const char* str = "Test Word";
+			//使用strlen()函数计算字符串的长度，返回值类型为size_t
+			//strlen()函数属于C语言函数，其返回值不包含结尾的'\0'字符
+			int size = strlen(str);
+			//字符串长度因为不包含结尾的'\0'字符，所以打印显示长度-1
+			cout << "size = " << size << endl;
+			//定义一个vector数组vec
+			//字符串常量默认指针指向0址，使用str + size - 1可以获取字符串的最后一个字符的地址
+			//+1是为了包含结尾的'\0'字符，使vector数组vec的大小为size + 1
+			vector <unsigned char> vec(str, str + size + 1);
+			//vec数组可视为字符串的容器，使用data()函数获取vec数组的首地址，并打印出来
+			cout << vec.data() << endl;
+			//打印vec数组的大小，即字符串的长度加1
+			cout << "vec.size() = " << vec.size() << endl;
+
+			//思路：获取字符串的地址，使用strlen()函数计算长度，直接将字符串的首地址和长度传递给vector数组的构造函数，完成char*到vector的转换
+		}
+
+		//栈区数组 -> vector
+		{
+
+			{
+				//定义一个栈区数组arr，初始值为{1, 2, 3, 4, 5}
+				int arr[5] = { 1, 2, 3, 4, 5 };
+				//使用sizeof()函数计算数组的大小，返回值类型为size_t
+				//sizeof()函数属于C++语言函数，其返回值包含数组中所有元素的字节数
+				int size = sizeof(arr) / sizeof(arr[0]);
+				//打印数组的大小，即元素的个数
+				cout << "size = " << size << endl;
+				//定义一个vector数组vec，将栈区数组arr的内容复制到vec中
+				vector <int> vec(arr, arr + size);
+				//打印vec数组的大小，即元素的个数
+				cout << "vec.size() = " << vec.size() << endl;
+
+				//思路：获取栈区数组的总长度和单个元素的长度，计算出数组的元素个数，然后直接将数组的首地址和元素个数传递给vector数组的构造函数，完成数组到vector的转换
+			}
+			{
+				//定义一个栈区数组arr，初始值为"测试数组"
+				char arr[]{ "测试数组" };
+				//使用sizeof()函数获取数组的总字节数，使用指针运算获取数组的首地址和末地址后存储到vector数组data中
+				//arr + sizeof(arr)也可写为 &arr[sizeof(arr)]
+				vector <unsigned char> data(arr, arr + sizeof(arr));
+				//比较sizeof()函数和vector数组的size()函数的返回值，验证两者是否一致
+				cout << "data.size() = " << data.size() << ":" << sizeof(arr) << " = sizeof(arr)" << endl;
+
+				//思路：获取栈区数组的总字节数，直接将数组的首地址和末地址传递给vector数组的构造函数，完成数组到vector的转换
+			}
+		}
+
+		//string -> vector
+		{
+			string str{ "测试string到vector" };
+			//使用string的begin()和end()函数获取字符串的首地址和末地址后存储到vector数组vec中
+			vector <unsigned char> vec(str.begin(), str.end());
+			//使用begin()和end()函数不能保证vector数组vec中包含字符串的结尾'\0'字符
+			cout << "vec.size() = " << vec.size() << ":" << str.size() << " = str.size()" << endl;
+			//使用clear()函数清空空间标识
+			vec.clear();cout << "\n";
+			//使用data()函数获取字符串的首地址，使用size()函数获取字符串的长度，再加1以包含结尾的'\0'字符后存储到vector数组vec中
+			vec.assign(str.data(), str.data() + str.size() + 1);
+			//比较vector数组vec的size()函数和string的size()函数的返回值，确保转换后vec数组中包含字符串的结尾'\0'字符
+			cout << "vec.size() = " << vec.size() << ":" << str.size() << " = str.size()" << endl;
+
+			//思路：获取字符串的首地址和长度，直接将字符串的首地址和长度传递给vector数组的构造函数,完成string到vector的转换
+		}
+
+		//vector -> string
+		{
+			string str{ "测试vector到string" };
+			vector <unsigned char> vec(str.data(), str.data() + str.size() + 1);
+			//使用vector数组vec的begin()和end()函数获取首地址和末地址后存储到string对象outstr中
+			string outstr(vec.begin(), vec.end());
+			//打印转换后的string对象
+			cout << "outstr = " << outstr << endl;
+			//比较初始string对象str的size()函数和转换后的string对象outstr的size()函数的返回值
+			//在vector数组转为string对象时会在结尾自动添加'\0'字符，导致outstr的size()函数返回值比str的size()函数返回值大1
+			cout << "outstr.size() = " << outstr.size() << ":" << str.size() << " = str.size()" << endl;
+			//使用clear()函数清空空间标识
+			vec.clear();cout << "\n";
+			//使用data()函数获取字符串的首地址，使用size()函数获取字符串的长度,不再加1以避免在vector转string时重复添加'\0'字符
+			vec.assign(str.data(), str.data() + str.size());
+			//使用assign()函数将vector数组vec的内容赋值给string对象outstr
+			outstr.assign(vec.begin(), vec.end());
+			//打印转换后的string对象
+			cout << "outstr = " << outstr << endl;
+			//比较初始string对象str的size()函数和转换后的string对象outstr的size()函数的返回值
+			cout << "outstr.size() = " << outstr.size() << ":" << str.size() << " = str.size()" << endl;
+
+			//思路：直接将vector数组的内容赋值给string对象的构造函数，完成vector到string的转换
+		}
 	}
 */
 
@@ -1126,9 +1218,11 @@ int main()
 	{
 
 	}
+
 /**/
 
-//
+
+
 }
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
 // 调试程序: F5 或调试 >“开始调试”菜单
