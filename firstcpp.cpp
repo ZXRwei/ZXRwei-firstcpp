@@ -1230,10 +1230,16 @@ int main()
 */
 
 //利用多文件与函数实现缓存数据库
-
+/**/
 	{
-		std::string line;
-		std::cout << "缓存数据库已启动。命令：添加/查看/删除/索引，输入“退出”结束。\n";
+		string line;
+		cout << "缓存数据库已启动。命令：添加/查看/删除/索引，输入“退出”结束。\n";
+
+//利用多文件与函数实现缓存数据库
+/**/
+	{
+		string line;
+		cout << "缓存数据库已启动。命令：添加/查看/删除/索引，输入“退出”结束。\n";
 
 		while (true) {
 			std::cout << "\n> ";
@@ -1247,23 +1253,26 @@ int main()
 			if (cmd == "退出" || cmd == "exit" || cmd == "quit") {
 				std::cout << "已退出。\n";
 				break;
-			}
 			if (cmd.empty()) continue;             // 空行直接跳过
 
 			std::cout << cachedb::cache_db_line(line) << "\n";
 		}
 		return 0;
-		
+>>>>>>>>> Temporary merge branch 2
 	}
+<<<<<<<<< Temporary merge branch 1
 
-/**/
-
-
-
-
+=========
+>>>>>>>>> Temporary merge branch 2
 
 
 
+
+<<<<<<<<< Temporary merge branch 1
+
+
+=========
+>>>>>>>>> Temporary merge branch 2
 }
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
 // 调试程序: F5 或调试 >“开始调试”菜单
