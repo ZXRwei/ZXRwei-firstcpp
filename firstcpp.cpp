@@ -1242,6 +1242,10 @@ int main()
 				break;
 			}
 
+=========
+
+=========
+
 			// 去掉首尾空白再判断退出
 			string cmd = trim(line);
 			if (cmd == "退出" || cmd == "exit" || cmd == "quit") {
