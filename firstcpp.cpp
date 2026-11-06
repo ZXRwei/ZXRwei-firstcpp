@@ -10,11 +10,12 @@
 #include <sstream>//字符串流
 //#include "Test_First.h"//本地头文件
 //#include "test_base16.h"//本地头文件
-#include "cache_db.hpp"
+//#include "cache_db.hpp"
+#include "Cache_DataBase.h"
 
 //命名空间 不可放入头文件中
 using namespace std;
-using namespace cachedb;
+//using namespace cachedb;
 
 //入口函数传递参数
 //传递参数：TEXT 25 CPP 3.14
@@ -1230,36 +1231,46 @@ int main()
 */
 
 //利用多文件与函数实现缓存数据库
-/**/
+/*
 	{
-		string line;
-		cout << "缓存数据库已启动。命令：添加/查看/删除/索引，输入“退出”结束。\n";
+		std::string line;
+		std::cout << "缓存数据库已启动。命令：添加/查看/删除/索引，输入“退出”结束。\n";
 
-//利用多文件与函数实现缓存数据库
-/**/
-	{
-			std::string line;
-			std::cout << "缓存数据库已启动。命令：添加/查看/删除/索引，输入“退出”结束。\n";
-
-			while (true) {
-				std::cout << "\n> ";
-				if (!std::getline(std::cin, line)) {   // EOF / 输入流异常
-					std::cout << "\n输入流结束，程序退出。\n";
-					break;
-				}
-
-				// 去掉首尾空白再判断退出
-				std::string cmd = cachedb::trim(line);
-				if (cmd == "退出" || cmd == "exit" || cmd == "quit") {
-					std::cout << "已退出。\n";
-					break;
-				}
-				if (cmd.empty()) continue;             // 空行直接跳过
-
-				std::cout << cachedb::cache_db_line(line) << "\n";
+		while (true) {
+			std::cout << "\n> ";
+			if (!std::getline(std::cin, line)) {   // EOF / 输入流异常
+				std::cout << "\n输入流结束，程序退出。\n";
+				break;
 			}
-			return 0;
+
+			// 去掉首尾空白再判断退出
+			std::string cmd = cachedb::trim(line);
+			if (cmd == "退出" || cmd == "exit" || cmd == "quit") {
+				std::cout << "已退出。\n";
+				break;
+			}
+			if (cmd.empty()) continue;             // 空行直接跳过
+
+			std::cout << cachedb::cache_db_line(line) << "\n";
+		}
+		return 0;
 	}
+*/
+	{
+		Cache_DataBase("add");
+		cout << Cache_DataBase_Back << endl;
+
+
+
+
+
+	}
+
+
+
+
+
+
 
 }
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

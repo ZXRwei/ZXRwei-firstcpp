@@ -139,6 +139,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cache_DataBase.cpp" />
     <ClCompile Include="firstcpp.cpp" />
     <ClCompile Include="test_base16.cpp" />
     <ClCompile Include="Test_First.cpp" />
@@ -147,9 +148,8 @@
     <Text Include="笔记.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cache_DataBase.h" />
     <ClInclude Include="cache_db.hpp" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="resource1.h" />
     <ClInclude Include="test_base16.h" />
     <ClInclude Include="Test_First.h" />
   </ItemGroup>

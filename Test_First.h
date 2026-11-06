@@ -1,4 +1,9 @@
 #pragma once
+
+#include <string>
+#include <vector>
+#include <iostream>
+
 //头文件内不可进行定义变量、函数、类等操作，只能进行声明操作
 
 //枚举空间
