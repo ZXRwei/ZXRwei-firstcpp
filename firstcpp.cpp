@@ -1257,13 +1257,26 @@ int main()
 	}
 */
 	{
-		Cache_DataBase("add");
-		cout << Cache_DataBase_Back << endl;
+		char CDB_Return = Cache_DataBase("delete","po","op");
 
 
 
 
 
+
+
+
+
+
+
+
+
+		if (CDB_Return) {
+			cout << "成功" << endl;
+		}
+		else {
+			cout << "失败" << endl;
+		}
 	}
 
 
