@@ -1257,7 +1257,7 @@ int main()
 	}
 */
 	{
-		char CDB_Return = Cache_DataBase("delete","op","po");
+	char CDB_Return = Cache_DataBase("delete", "第一");
 
 
 
@@ -1270,19 +1270,15 @@ int main()
 
 
 
-
-		if (CDB_Return) {
-			cout << "成功" << endl;
-		}
-		else {
-			cout << "失败" << endl;
-		}
+	if (CDB_Return) {
+		cout << "True" << endl;
+	}
+	else {
+		cout << "False" << endl;
 	}
 
 
-
-
-
+	}
 
 
 }

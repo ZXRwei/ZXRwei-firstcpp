@@ -10,4 +10,4 @@
 ///@param key 标识
 ///@param content 内容
 ///@return True and False
-char Cache_DataBase(std::string command,std::string key,std::string content);
+char Cache_DataBase(std::string command,std::string key = "", std::string content = "");
