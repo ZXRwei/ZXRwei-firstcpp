@@ -149,9 +149,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cache_DataBase.h" />
-    <ClInclude Include="cache_db.hpp" />
     <ClInclude Include="test_base16.h" />
     <ClInclude Include="Test_First.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

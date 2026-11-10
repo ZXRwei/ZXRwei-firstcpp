@@ -40,11 +40,11 @@
     <ClInclude Include="test_base16.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="cache_db.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Cache_DataBase.h">
       <Filter>头文件</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
   </ItemGroup>
 </Project>
