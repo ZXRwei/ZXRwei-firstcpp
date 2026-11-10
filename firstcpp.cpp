@@ -2,20 +2,20 @@
 //
 
 //引用外部文件
-#include <iostream>//输入与输出
-#include <bitset>//输出二进制
-#include <string>//字符串类型
-#include <vector>//vector数组
+#include <iostream>	//输入与输出
+#include <bitset>	//输出二进制
+#include <string>	//字符串类型
+#include <vector>	//vector数组
 #include <algorithm>//算法库-排序
-#include <sstream>//字符串流
-//#include "Test_First.h"//本地头文件
-//#include "test_base16.h"//本地头文件
-//#include "cache_db.hpp"
-#include "Cache_DataBase.h"
+#include <sstream>	//字符串流
+
+//本地头文件
+//#include "Test_First.h"
+//#include "test_base16.h"
+//#include "Cache_DataBase.h"
 
 //命名空间 不可放入头文件中
 using namespace std;
-//using namespace cachedb;
 
 //入口函数传递参数
 //传递参数：TEXT 25 CPP 3.14
@@ -1233,79 +1233,163 @@ int main()
 //利用多文件与函数实现缓存数据库
 /*
 	{
-		std::string line;
-		std::cout << "缓存数据库已启动。命令：添加/查看/删除/索引，输入“退出”结束。\n";
-
-		while (true) {
-			std::cout << "\n> ";
-			if (!std::getline(std::cin, line)) {   // EOF / 输入流异常
-				std::cout << "\n输入流结束，程序退出。\n";
-				break;
-			}
-
-			// 去掉首尾空白再判断退出
-			std::string cmd = cachedb::trim(line);
-			if (cmd == "退出" || cmd == "exit" || cmd == "quit") {
-				std::cout << "已退出。\n";
-				break;
-			}
-			if (cmd.empty()) continue;             // 空行直接跳过
-
-			std::cout << cachedb::cache_db_line(line) << "\n";
-		}
-		return 0;
-	}
-*/
-	{
-
 	cout << "command>>add/delete/view/index/clear/exit" << endl;
 
-	while (true)
+		while (true)
+		{
+			cout << "command key content>>";
+
+			string input;
+			getline(cin, input);
+			string command;
+			string key;
+			string content;
+			istringstream iss(input);
+
+			iss >> command >> key >> content;
+
+			if (command == "exit") {
+				return 0;
+			}
+
+			char CDB_Return = Cache_DataBase(command, key, content);
+
+			if (CDB_Return) {
+				cout << "True" << endl;
+			}
+			else {
+				cout << "False" << endl;
+			}
+
+		}
+	}
+*/
+
+//输入与输出
+
+{
+/*
+		//cout stdout 1
+		//cerr stderr 2
 	{
-		cout << "command key content>>";
+		//cout标准输出iostream
+		{
+			//指定cout的输出格式
+			//输出整数默认为10进制
+			cout << 100 << endl;
 
-		string input;
-		getline(cin, input);
-		string command;
-		string key;
-		string content;
-		istringstream iss(input);
-		
-		iss >> command >> key >> content;
+			//将oct（八进制）类型传递给cout，使其输出的整数显示为八进制
+			cout << oct << 100 << " " << 130 << endl;
+			cout << 150 << endl;
 
-		if (command == "exit") {
-			return 0;
+			//将hex（十六进制）类型传递给cout
+			cout << hex << 100 << " " << 130 << endl;
+
+			//将dec（十进制）类型传递给cout
+			cout << dec << endl;
+			cout << 100 << endl;
+
+			//bool类型的true与false
+			cout << true << " " << false << endl;
+			//传递类型boolalpha
+			cout << boolalpha << true << " " << false << endl;
 		}
 
-		char CDB_Return = Cache_DataBase(command, key, content);
+		//cout的无格式输出
+		{
+			//连续与单个put函数调用
+			cout.put('A').put('B');
+			cout.put('C');
+			//使用编码表直接输出
+			cout.put(68);
 
-		if (CDB_Return) {
-			cout << "True" << endl;
+			//处理成块字符
+			cout.write("123", 3);
+			string test = "test";
+			cout.write(test.c_str(), test.size());
 		}
-		else {
-			cout << "False" << endl;
+
+		//cout刷新缓冲区
+		{
+			//flush函数仅刷新缓冲区
+			cout << flush;
+			//endl函数刷新缓冲区并输入换行符
+			cout << endl;
 		}
+
+		//cerr
+		{
+			//cerr标准错误输出 无缓冲
+
+			cerr << "test 01\n";
+
+			//将cout输出到1.txt中，将cerr输出到2.txt中
+			//firstcpp.exe 1>1.txt 2>2.txt
+			//将cout输出到log.txt中，将cerr输出到1中
+			//firstcpp.exe >log.txt 2>&1
+		}
+
+	}*/
+	{/*
+		//单行输入getline
+		{
+			for (;;) {
+			char char_buf[1024]{ 0 };
+			cout << ">>";
+			cin.getline(char_buf, sizeof(char_buf) - 1);
+			cout << char_buf << endl;
+			if (strstr(char_buf, "exit")) {break;}
+			}
+		}
+		{
+			string line;
+			getline(cin, line);
+			cout << line << endl;
+		}
+
+		//单字符输入get
+		{
+			string cmd;
+			for (;;) {
+				char c = cin.get();
+				if (c == '\n' || c == ';') {
+					cout << ">>" << cmd << endl;
+					cmd = "";
+					continue;
+				}
+				cmd += c;
+			}
+		}*/
+		//错误输入处理
+		{
+			for (;;) {
+				cout << "Number>>" << flush;
+				string line;
+				int Number;
+				cin >> Number;
+				//if(cin.rdstate() == std::ios_base::failbit){}
+				if (cin.fail()) {
+					cin.clear();
+					getline(cin, line);
+					cout << "Fail with " << "'" << line << "'" << endl;
+					continue;
+				}
+				cout << "Number>>" << Number << endl;
+			}
+		}
+
+
+}
+
+
+
+
 
 
 
 
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-	}
-
-
+//main函数外
 }
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
 // 调试程序: F5 或调试 >“开始调试”菜单
