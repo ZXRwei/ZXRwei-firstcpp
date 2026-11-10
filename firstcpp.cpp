@@ -1257,25 +1257,50 @@ int main()
 	}
 */
 	{
-	char CDB_Return = Cache_DataBase("delete", "第一");
+
+	cout << "command>>add/delete/view/index/clear/exit" << endl;
+
+	while (true)
+	{
+		cout << "command key content>>";
+
+		string input;
+		getline(cin, input);
+		string command;
+		string key;
+		string content;
+		istringstream iss(input);
+		
+		iss >> command >> key >> content;
+
+		if (command == "exit") {
+			return 0;
+		}
+
+		char CDB_Return = Cache_DataBase(command, key, content);
+
+		if (CDB_Return) {
+			cout << "True" << endl;
+		}
+		else {
+			cout << "False" << endl;
+		}
 
 
 
 
-
-
-
-
-
-
-
-
-	if (CDB_Return) {
-		cout << "True" << endl;
 	}
-	else {
-		cout << "False" << endl;
-	}
+
+
+
+
+
+
+
+
+
+
+
 
 
 	}
