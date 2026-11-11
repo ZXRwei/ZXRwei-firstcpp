@@ -8,6 +8,7 @@
 #include <vector>	//vector数组
 #include <algorithm>//算法库-排序
 #include <sstream>	//字符串流
+#include <fstream>	//文件的输入与输出
 
 //本地头文件
 //#include "Test_First.h"
@@ -1426,21 +1427,63 @@ int main()
 	}
 }*/
 
-//文件的输入与输出
+//文件的写入与读取
 
 {
+	string TestFile = "TestFile.txt";
 
+	//写入
+	{
+		//输出默认清空文件原内容
+		fstream test_file(TestFile, ios::out | ios::binary);	//out表示写入文件，binary表示二进制处理。\r\n不处理
+		//test_file.open(TestFile, ios::out | ios::binary);		//另一种格式
+		test_file << "1234567890\n";							//将内容传递给文件
+		test_file.close();										//将文件关闭，释放空间
+	}
+	{
+		ofstream test_file;
+		test_file.open(TestFile, ios::app | ios::binary);		//app追加写入
+		test_file << "ABCDEFGHIJKLMN\n" << flush;
+		test_file.write("TEXT", 4);
+		test_file.close();
+	}
 
+	//读取
+	{
+		fstream test_file(TestFile, ios::in | ios::binary);
+		if (!test_file.is_open()) {
+			cerr << "Open file" << TestFile << "failed!" << endl;
+			return -1;
+		}
+		char buf[4096]{ 0 };
+		test_file.read(buf, sizeof(buf) - 1);
+		cout << test_file.gcount() << endl;
+		cout << endl;
+		cout << buf << endl;
+		test_file.close();
+	}
 
+	//获取文件大小
+	{
+		ifstream test_file(TestFile, ios::binary | ios::ate);
+		cout << TestFile << " FileSize>>" << test_file.tellg() << endl;
+		test_file.close();
+	}
 
-
-
-
-
-
-
+	//读取更改后的文件内容
+	{
+		string line;
+		ifstream test_file(TestFile, ios::binary | ios::ate);
+		for (;;) {
+			getline(test_file, line);
+			if (!line.empty()) {
+				cout << "line>>" << line << endl;
+			}
+			test_file.clear();
+		}
+	}
 }
-
+/**/
 //main函数外
 }
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
