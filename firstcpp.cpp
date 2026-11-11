@@ -1265,10 +1265,9 @@ int main()
 	}
 */
 
-//输入与输出
-
-{
+//控制台的输入与输出
 /*
+{
 		//cout stdout 1
 		//cerr stderr 2
 	{
@@ -1329,8 +1328,8 @@ int main()
 			//firstcpp.exe >log.txt 2>&1
 		}
 
-	}*/
-	{/*
+	}
+	{
 		//单行输入getline
 		{
 			for (;;) {
@@ -1359,7 +1358,7 @@ int main()
 				}
 				cmd += c;
 			}
-		}*/
+		}
 		//错误输入处理
 		{
 			for (;;) {
@@ -1377,18 +1376,71 @@ int main()
 				cout << "Number>>" << Number << endl;
 			}
 		}
+	}
+	//字符串的输入输出
+	{
+		//stringstream的基础用法
+		{
+			stringstream ss;
+			ss << "test stringstream" << 100;
+			ss << true;
+			cout << ss.str() << endl;
+
+			//可传递对应cout的语法
+			ss << boolalpha;
+			ss << hex;
+			ss << "\n" << false << 100 << endl;
+			cout << ss.str() << endl;
+
+			ss << noboolalpha;
+			ss << dec;
+			ss << "test stringstream" << 100 << false;
+			cout << ss.str() << endl;
+			//清空字符串
+			ss.str("");
+		}
+
+		//stringstream的格式输入
+		{
+			string data{ "A B C" };
+			stringstream ss(data);
+			string tmp;
+			ss >> tmp;cout << tmp << ";";
+			ss >> tmp;cout << tmp << ";";
+			ss >> tmp;cout << tmp << ";";
+			cout << endl;
+		}
+
+		//stringstream的单行读取
+		{
+			string data{ "A B C\nD E F\nG H I" };	//定义参数
+			string line;							//定义变量以传参
+			stringstream ss(data);					//使用stringstream获取字符串参数
+			for (;;) {								//建立无限for循环
+				getline(ss, line);					//获取单行字符串
+				cout << line << endl;				//打印单行的字符串
+				if (ss.eof())break;					//判断字符串是否为空串，若为空串则退出
+			}
+		}
+
+	}
+}*/
+
+//文件的输入与输出
+
+{
+
+
+
+
+
+
+
+
 
 
 }
 
-
-
-
-
-
-
-
-	}
 //main函数外
 }
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
