@@ -4,6 +4,7 @@
     <Platform Name="x86" />
   </Configurations>
   <Folder Name="/解决方案项/">
+    <File Path="log.txt" />
     <File Path="TestFile.txt" />
   </Folder>
   <Project Path="firstcpp.vcxproj" Id="99420290-cec3-418a-b872-a9a973ebd3e7" />

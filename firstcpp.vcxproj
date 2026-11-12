@@ -149,6 +149,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cache_DataBase.h" />
+    <ClInclude Include="GetNow.h" />
+    <ClInclude Include="Log_module.h" />
     <ClInclude Include="test_base16.h" />
     <ClInclude Include="Test_First.h" />
   </ItemGroup>

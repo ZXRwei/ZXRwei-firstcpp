@@ -43,6 +43,12 @@
     <ClInclude Include="Cache_DataBase.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="GetNow.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Log_module.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
