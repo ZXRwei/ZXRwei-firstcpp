@@ -1,2 +1,6 @@
 2026-11-12 13:38:27 debug test log 004 ofstream D:\study\firstcpp\firstcpp.cpp:1499
 2026-11-12 13:38:27 debug test log 005 ofstream D:\study\firstcpp\firstcpp.cpp:1500
+2026-11-13 12:17:09 debug test log 004 ofstream D:\study\firstcpp\firstcpp.cpp:1499
+2026-11-13 12:17:09 debug test log 005 ofstream D:\study\firstcpp\firstcpp.cpp:1500
+2026-11-13 13:01:54 debug test log 004 ofstream D:\study\firstcpp\firstcpp.cpp:1499
+2026-11-13 13:01:54 debug test log 005 ofstream D:\study\firstcpp\firstcpp.cpp:1500

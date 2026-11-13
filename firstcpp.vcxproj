@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Cache_DataBase.cpp" />
     <ClCompile Include="firstcpp.cpp" />
+    <ClCompile Include="Log.cpp" />
     <ClCompile Include="test_base16.cpp" />
     <ClCompile Include="Test_First.cpp" />
   </ItemGroup>
@@ -150,6 +151,7 @@
   <ItemGroup>
     <ClInclude Include="Cache_DataBase.h" />
     <ClInclude Include="GetNow.h" />
+    <ClInclude Include="Log.h" />
     <ClInclude Include="Log_module.h" />
     <ClInclude Include="test_base16.h" />
     <ClInclude Include="Test_First.h" />

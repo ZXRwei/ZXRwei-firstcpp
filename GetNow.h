@@ -2,6 +2,8 @@
 
 #include <iomanip>
 
+// @brief 时间戳
+// @return 程序运行时的系统时间
 static std::string GetNow(
     const char* fmt = "%Y-%m-%d %H:%M:%S",
     int time_zone = 8)

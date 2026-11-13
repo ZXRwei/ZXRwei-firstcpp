@@ -14,7 +14,8 @@
 //#include "Test_First.h"
 //#include "test_base16.h"
 //#include "Cache_DataBase.h"
-#include "Log_module.h"
+//#include "Log_module.h"
+#include "Log.h"
 
 //命名空间 不可放入头文件中
 using namespace std;
@@ -1488,16 +1489,28 @@ int main()
 
 //模拟日志模块
 {
-	LOGDEBUG("test log 001");
-	LOGDEBUG("test log 002");
-	stringstream ss;							//写入控制台
-	SetLogBuf(ss.rdbuf());
-	LOGDEBUG("test log 003 stringstream");
-	cout << "ss.str():" << ss.str() << endl;
-	ofstream ofs("log.txt", ios::app);			//app写入文件
-	SetLogBuf(ofs.rdbuf());
-	LOGDEBUG("test log 004 ofstream");
-	LOGDEBUG("test log 005 ofstream");
+	/*{
+		LOGDEBUG("test log 001");
+		LOGDEBUG("test log 002");
+		stringstream ss;							//写入控制台
+		SetLogBuf(ss.rdbuf());						//设置buf
+		LOGDEBUG("test log 003 stringstream");		//将日志存储到stringstream中
+		cout << "ss.str():" << ss.str() << endl;	//在控制台打印被存储日志
+		ofstream ofs("log.txt", ios::app);			//app写入文件
+		SetLogBuf(ofs.rdbuf());						//将变量内的日志输出到控制台
+		LOGDEBUG("test log 004 ofstream");
+		LOGDEBUG("test log 005 ofstream");
+		ofs.close();
+	}*/
+
+	{
+
+
+
+
+
+
+	}
 }
 //main函数外
 }
