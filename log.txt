@@ -4,3 +4,12 @@
 2026-11-13 12:17:09 debug test log 005 ofstream D:\study\firstcpp\firstcpp.cpp:1500
 2026-11-13 13:01:54 debug test log 004 ofstream D:\study\firstcpp\firstcpp.cpp:1499
 2026-11-13 13:01:54 debug test log 005 ofstream D:\study\firstcpp\firstcpp.cpp:1500
+2026-11-15 23:55:52 error SECOND D:\study\firstcpp\firstcpp.cpp:1508
+2026-11-15 23:56:33 error SECOND D:\study\firstcpp\firstcpp.cpp:1508
+
+2026-11-15 23:56:59 error SECOND D:\study\firstcpp\firstcpp.cpp:1508
+2026-11-15 23:57:13 error SECOND D:\study\firstcpp\firstcpp.cpp:1508
+2026-11-15 23:57:44 error SECOND D:\study\firstcpp\firstcpp.cpp:1508
+2026-11-15 23:58:06 error SECOND D:\study\firstcpp\firstcpp.cpp:1508
+2026-11-15 23:58:44 debug FIRST D:\study\firstcpp\firstcpp.cpp:1507
+2026-11-15 23:58:44 error SECOND D:\study\firstcpp\firstcpp.cpp:1508

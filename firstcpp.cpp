@@ -1504,7 +1504,8 @@ int main()
 	}*/
 
 	{
-
+		LOG_EXPORT("FIRST", 1, 1);
+		LOG_EXPORT("SECOND", 3, 1);
 
 
 

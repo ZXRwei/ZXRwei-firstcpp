@@ -141,7 +141,6 @@
   <ItemGroup>
     <ClCompile Include="Cache_DataBase.cpp" />
     <ClCompile Include="firstcpp.cpp" />
-    <ClCompile Include="Log.cpp" />
     <ClCompile Include="test_base16.cpp" />
     <ClCompile Include="Test_First.cpp" />
   </ItemGroup>

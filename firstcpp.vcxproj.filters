@@ -27,9 +27,6 @@
     <ClCompile Include="Cache_DataBase.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Log.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="笔记.txt">
