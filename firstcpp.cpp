@@ -1504,13 +1504,15 @@ int main()
 	}*/
 
 	{
-		LOG_EXPORT("FIRST", 1, 1);
-		LOG_EXPORT("SECOND", 3, 1);
-
-
-
-
-
+		LOG_EXPORT("1 0", 1, 0);
+		LOG_EXPORT("1 1", 1, 1);
+		LOG_EXPORT("2 0", 2, 0);
+		LOG_EXPORT("2 1", 2, 1);
+		LOG_EXPORT("3 0", 3, 0);
+		LOG_EXPORT("3 1", 3, 1);
+		LOG_EXPORT("4 0", 4, 0);
+		LOG_EXPORT("4 1", 4, 1);
+		LOG_EXPORT("000", 0, 3);
 	}
 }
 //main函数外
