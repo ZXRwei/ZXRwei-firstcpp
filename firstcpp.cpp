@@ -11,11 +11,11 @@
 #include <fstream>	//文件的输入与输出
 
 //本地头文件
-//#include "Test_First.h"
+#include "Test_First.h"
 //#include "test_base16.h"
 //#include "Cache_DataBase.h"
 //#include "Log_module.h"
-#include "Log.h"
+//#include "Log.h"
 
 //命名空间 不可放入头文件中
 using namespace std;
@@ -1488,8 +1488,9 @@ int main()
 */
 
 //模拟日志模块
+/*
 {
-	/*{
+	{
 		LOGDEBUG("test log 001");
 		LOGDEBUG("test log 002");
 		stringstream ss;							//写入控制台
@@ -1501,7 +1502,7 @@ int main()
 		LOGDEBUG("test log 004 ofstream");
 		LOGDEBUG("test log 005 ofstream");
 		ofs.close();
-	}*/
+	}
 
 	{
 		LOG_EXPORT("1 0", 1, 0);
@@ -1514,6 +1515,99 @@ int main()
 		LOG_EXPORT("4 1", 4, 1);
 		LOG_EXPORT("000", 0, 3);
 	}
+}*/
+
+//面向对象基础
+{
+	F_Class Fc_1;
+	F_Class Fc_2;
+	F_Class Boss;
+
+	Fc_1.Name = "甲";Fc_1.Fixed_Atack = 5;Fc_1.Fixed_Defense = 3;
+	Fc_2.Name = "乙";Fc_2.Fixed_Atack = 3;Fc_2.Fixed_Defense = 5;
+	Boss.Name = "Boss";Boss.Blood = 20;Boss.Fixed_Atack = 5;
+	
+	cout << "面向对象:模拟游戏\n现在你有两个角色,你需要用这两个角色击败Boss!" << endl;
+	cout << Fc_1.Name << "(" << Fc_1.Blood << ") " << "攻:" << Fc_1.Fixed_Atack << " 防:" << Fc_1.Fixed_Defense << endl;
+	cout << Fc_2.Name << "(" << Fc_2.Blood << ") " << "攻:" << Fc_2.Fixed_Atack << " 防:" << Fc_2.Fixed_Defense << endl;
+	cout << endl;
+	cout << Boss.Name << "(" << Boss.Blood << ") " << "攻:" << Boss.Fixed_Atack << " 防:" << Boss.Fixed_Defense << endl;
+
+	string role;
+	string action;
+	string command;
+	int Choose_Role{ 0 };
+	int Choose_Action{ 0 };
+
+	while (true)
+	{
+		cout << "\n操作:";
+		getline(cin, command);
+		istringstream iss(command);
+		iss >> role;
+		iss >> action;
+
+		//角色判断
+		if (role == "甲" || role == "1" || role == "A") {
+			Choose_Role = 10;
+			cout << "甲" <<":";
+		}
+		else if (role == "乙" || role == "2" || role == "B") {
+			Choose_Role = 20;
+			cout << "乙" <<":";
+		}
+		else {
+			cout << "非可用角色" << endl;
+		}
+
+		//命令判断
+		if (action == "攻击" || action == "Atack" || action == "打" || action == "1") {
+			Choose_Action = 01;
+			cout << "攻击" << endl;
+		}
+		else if (action == "防御" || action == "Defense" || action == "防" || action == "0") {
+			Choose_Action = 02;
+			cout << "防御" << endl;
+		}
+		else {
+			cout << "非可用行动" << endl;
+		}
+
+		//行动实施
+		switch (Choose_Role + Choose_Action)
+		{
+			//甲攻
+			case 11:
+
+				break;
+			//甲防
+			case 12:
+				
+				break;
+			//乙攻
+			case 21:
+
+				break;
+			//乙防
+			case 22:
+
+				break;
+		}
+
+
+
+
+
+
+
+
+
+
+	}
+
+
+
+
 }
 //main函数外
 }
