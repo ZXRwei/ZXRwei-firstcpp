@@ -154,6 +154,7 @@
     <ClInclude Include="Log_module.h" />
     <ClInclude Include="test_base16.h" />
     <ClInclude Include="Test_First.h" />
+    <ClInclude Include="T_Class.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
