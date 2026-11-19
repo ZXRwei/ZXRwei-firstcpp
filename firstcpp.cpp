@@ -1520,16 +1520,11 @@ int main()
 
 //面向对象基础
 {
-	T_Class NPC_1;
-	NPC_1.Name = "NPC_1";NPC_1.Blood = 10;NPC_1.Attack = 3;NPC_1.Defense = 4;
-	T_Class BOSS;
-	BOSS.Name = "BOSS";BOSS.Blood = 10;BOSS.Attack = 5;BOSS.Defense = 0;
-	T_Class_Attack(NPC_1, BOSS);
-	T_Class_Defense(NPC_1);
-	T_Class_Attack(BOSS, NPC_1);
-
-
-
+	T_Class Test_1;
+	Test_1.Name = "Test_1";
+	Test_1.Age = 2;
+	Test_1.Number = 15;
+	cout << Test_1.Name << " " << Test_1.Age << " " << Test_1.Number * 1 << endl;
 }
 //main函数外
 }
