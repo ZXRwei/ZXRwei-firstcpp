@@ -1519,15 +1519,47 @@ int main()
 }*/
 
 //面向对象基础
-{
-	T_Class Test_1;
-	Test_1.Name = "Test_1";
-	Test_1.Age = 2;
-	Test_1.Number = 15;
-	cout << Test_1.Name << " " << Test_1.Age << " " << Test_1.Number * 1 << endl;
+
+{//T_Class.h
+	//基础赋值与调用
+	{
+		T_Class Test_1;
+		Test_1.Name = "Test_1";
+		Test_1.A = 2;
+		Test_1.Number = 15;
+		cout << Test_1.Name << " " << Test_1.A << " " << Test_1.Number * 1 << endl;
+	}
+	//内联函数与外联函数
+	{
+		T_Class Test_A;
+		Test_A.A = 1;
+		Test_A.T_Class_Q(Test_A.A);
+		T_Class Test_B;
+		Test_B.B = 1;
+		Test_B.T_Class_W(Test_B.B);
+	}
+	//this指针:指向当前类对象的内存地址
+	{
+		T_Class Test_A;
+		Test_A.A = 1;
+		Test_A.T_Class_A(Test_A);
+		cout << (long long)&Test_A << endl;
+	}
+	//静态成员变量与函数
+	{
+		//可访问静态成员变量
+		cout << T_Class::T_pc << endl;
+		//不可访问静态成员变量
+		//cout << T_Class::T_pe << endl;
+
+		int S = 1;
+		T_Class::T_Class_Static_1(S);
+	}
 }
-//main函数外
-}
+
+
+}//main函数外
+
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
 // 调试程序: F5 或调试 >“开始调试”菜单
 
