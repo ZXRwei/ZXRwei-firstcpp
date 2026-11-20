@@ -1519,7 +1519,7 @@ int main()
 }*/
 
 //面向对象基础
-
+/*
 {//T_Class.h
 	//基础赋值与调用
 	{
@@ -1555,8 +1555,24 @@ int main()
 		int S = 1;
 		T_Class::T_Class_Static_1(S);
 	}
+}*/
+//构造函数与析构函数
+{
+	//栈区
+	{
+		//与类型同名
+		//构造函数在创建对象的时候自动调用,函数名是类名
+		//析构函数在对象释放空间前调用
+		T_Class_Construcor TCC;
+		T_Class_Construcor TCC2;
+	}
+	//堆区
+	{
+		T_Class_Construcor* TCC = new T_Class_Construcor();
+		delete TCC;
+		TCC = nullptr;
+	}
 }
-
 
 }//main函数外
 
