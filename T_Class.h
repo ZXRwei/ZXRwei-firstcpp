@@ -68,3 +68,41 @@ private:
 };
 int T_Class_Construcor::Number_S = { 10 };
 //T_Class_Construcor::T_Class_C1() {}
+
+
+//继承 基类
+class T_Class_A {
+public:
+	void A(int a) { std::cout << a << ">>" << (long long)this << std::endl; }
+private:
+	int A_{ 0 };
+	int B_{ 0 };
+	int AA_{ 0 };
+};
+
+//继承 派生类 公开继承
+class T_Class_B :public T_Class_A {
+public:
+	void B(int b) { std::cout << b << ">>" << (long long)this << std::endl; }
+private:
+	int C_{ 0 };
+	int D_{ 0 };
+};
+
+//继承 派生类 保护继承
+class T_Class_C :protected T_Class_A {
+public:
+	T_Class_C() { std::cout << "C" << std::endl; }
+	void C(int c) { std::cout << c << std::endl; }
+private:
+	int D_{ 0 };
+};
+
+//继承 派生类 私有继承
+class T_Class_D :private T_Class_A {
+public:
+	T_Class_D() { std::cout << "D" << std::endl; }
+	void D(int d) { std::cout << d << std::endl; }
+private:
+	int E_{ 0 };
+};

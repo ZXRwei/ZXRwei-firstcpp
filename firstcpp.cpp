@@ -1572,6 +1572,18 @@ int main()
 		delete TCC;
 		TCC = nullptr;
 	}
+	//继承
+	{
+		T_Class_A A;
+		A.A(1);
+		T_Class_B B;
+		B.A(2);
+		T_Class_C C;
+		C.C(3);
+		T_Class_D D;
+		D.D(4);
+
+	}
 }
 
 }//main函数外
